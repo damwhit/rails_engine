@@ -5,8 +5,12 @@ Rails.application.routes.draw do
         get 'find', to: 'find#show'
         get 'find_all', to: 'find#index'
         get 'random', to: 'random#show'
+        get '/:id/items', to: 'items#index'
       end
-      resources :merchants, only: [:index, :show]
+
+      resources :merchants, only: [:index, :show] do
+        resources :items, only: [:index]
+      end
 
       namespace :customers do
         get 'find', to: 'find#show'

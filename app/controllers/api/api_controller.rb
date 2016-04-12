@@ -12,20 +12,19 @@ module Api
     end
 
     def find
-      respond_with model.find_by(permitted_params)
+      respond_with model.find_by(strong_params)
     end
 
     def find_all
-      respond_with model.where(permitted_params)
+      respond_with model.where(strong_params)
     end
 
     def random
       respond_with model.order("RANDOM()").first
     end
 
-    def permitted_params
-      model_attributes = model.attribute_names.map { |attr| attr.to_sym }
-      params.permit(model_attributes)
+    def strong_params
+      params.permit(model_params)
     end
   end
 end
