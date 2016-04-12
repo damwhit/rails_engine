@@ -1,7 +1,7 @@
 require 'csv'
 
 namespace :data do
-  task load: :environment do
+  task import: :environment do
 
     merchant = File.join Rails.root, "data/merchants.csv"
 
@@ -24,6 +24,14 @@ namespace :data do
     CSV.foreach(item, headers: true, header_converters: :symbol) do |row|
       data = row.to_h
       record = Item.create(data)
+      puts "Created #{record.class}-#{record.id}."
+    end
+
+    invoice = File.join Rails.root, "data/invoices.csv"
+
+    CSV.foreach(invoice, headers: true, header_converters: :symbol) do |row|
+      data = row.to_h
+      record = Invoice.create(data)
       puts "Created #{record.class}-#{record.id}."
     end
   end
