@@ -24,7 +24,7 @@ RSpec.describe "GET api/v1/items" do
       id: item1.id,
       name: item1.name,
       :description => "America's past time",
-      :unit_price => 1000,
+      :unit_price => "10.0",
       :merchant_id => nil,
       created_at: "2012-03-27T14:53:59.000Z",
       updated_at: "2012-03-27T14:53:59.000Z"
