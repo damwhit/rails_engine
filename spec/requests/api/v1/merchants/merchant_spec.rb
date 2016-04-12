@@ -10,7 +10,7 @@ RSpec.describe "Get api/v1/merchants/:id" do
                       created_at: "2012-03-25 14:53:59 UTC",
                       updated_at: "2012-03-25 14:53:59 UTC")
 
-    get "/api/v1/merchants/#{merchant1.id}.json"
+    get "/api/v1/merchants/#{merchant1.id}"
 
     expect(response.status).to eq(200)
     expect(json_body.count).to eq(4)
