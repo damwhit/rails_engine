@@ -24,7 +24,7 @@ module Api
     end
 
     def permitted_params
-      params.permit(:id, :name, :description, :unit_price, :merchant_id, :created_at, :updated_at, :status, :customer_id)
+      params.permit(:id, :name, :description, :unit_price, :merchant_id, :created_at, :updated_at, :status, :customer_id, :quantity, :item_id, :invoice_id)
     end
   end
 end
