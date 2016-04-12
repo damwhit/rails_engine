@@ -12,19 +12,19 @@ module Api
     end
 
     def find
-      respond_with model.find_by(strong_params)
+      respond_with model.find_by(permitted_params)
     end
 
     def find_all
-      respond_with model.where(strong_params)
+      respond_with model.where(permitted_params)
     end
 
     def random
       respond_with model.order("RANDOM()").first
     end
 
-    def strong_params
-      params.permit(:id, :name, :description, :unit_price, :merchant_id, :created_at, :updated_at)
+    def permitted_params
+      params.permit(:id, :name, :description, :unit_price, :merchant_id, :created_at, :updated_at, :status, :customer_id)
     end
   end
 end
