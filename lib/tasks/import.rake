@@ -34,5 +34,13 @@ namespace :data do
       record = Invoice.create(data)
       puts "Created #{record.class}-#{record.id}."
     end
+
+    invoice_item = File.join Rails.root, "data/invoice_items.csv"
+
+    CSV.foreach(invoice_item, headers: true, header_converters: :symbol) do |row|
+      data = row.to_h
+      record = InvoiceItem.create(data)
+      puts "Created #{record.class}-#{record.id}."
+    end
   end
 end
