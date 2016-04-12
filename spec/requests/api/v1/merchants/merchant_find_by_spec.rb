@@ -65,5 +65,4 @@ RSpec.describe "Get api/v1/merchants/find?key=value" do
       updated_at: "2012-03-27T14:53:59.000Z"
       })
   end
-
 end
