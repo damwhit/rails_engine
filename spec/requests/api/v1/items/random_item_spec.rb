@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Get api/v1/items/random" do
   it "returns a random item" do
-    item1 = create(:item)
+    create(:item)
     create(:item, name: "basketball",
                   description: "sooo kewl",
                   unit_price: 10000,

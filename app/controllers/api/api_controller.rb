@@ -24,7 +24,8 @@ module Api
     end
 
     def permitted_params
-      params.permit(:id, :name, :description, :unit_price, :merchant_id, :created_at, :updated_at, :status, :customer_id, :quantity, :item_id, :invoice_id)
+      model_attributes = model.attribute_names.map { |attr| attr.to_sym }
+      params.permit(model_attributes)
     end
   end
 end
