@@ -10,5 +10,13 @@ namespace :data do
       record = Merchant.create(data)
       puts "Created #{record.class}-#{record.id}."
     end
+
+    customer = File.join Rails.root, "data/customers.csv"
+
+    CSV.foreach(customer, headers: true, header_converters: :symbol) do |row|
+      data = row.to_h
+      record = Customer.create(data)
+      puts "Created #{record.class}-#{record.id}."
+    end
   end
 end
