@@ -1,9 +1,17 @@
 RSpec.configure do |config|
   config.before(:suite) do
-    begin
-      DatabaseCleaner.start
-    ensure
-      DatabaseCleaner.clean
-    end
+    DatabaseCleaner.clean_with(:truncation)
   end
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  config.infer_spec_type_from_file_location!
+  config.filter_rails_from_backtrace!
 end
