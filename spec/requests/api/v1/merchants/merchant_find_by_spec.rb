@@ -23,4 +23,47 @@ RSpec.describe "Get api/v1/merchants/find?key=value" do
       updated_at: "2012-03-27T14:53:59.000Z"
       })
   end
+
+  it "returns a specific merchant by name" do
+
+    get "/api/v1/merchants/find?name=#{@merchant1.name}"
+
+    expect(response.status).to eq(200)
+    expect(json_body.count).to eq(4)
+    expect(json_body).to eq({
+      id: @merchant1.id,
+      name: @merchant1.name,
+      created_at: "2012-03-27T14:53:59.000Z",
+      updated_at: "2012-03-27T14:53:59.000Z"
+      })
+  end
+
+  it "returns a specific merchant by created at" do
+
+    get "/api/v1/merchants/find?created_at=#{@merchant1.created_at}"
+
+    expect(response.status).to eq(200)
+    expect(json_body.count).to eq(4)
+    expect(json_body).to eq({
+      id: @merchant1.id,
+      name: @merchant1.name,
+      created_at: "2012-03-27T14:53:59.000Z",
+      updated_at: "2012-03-27T14:53:59.000Z"
+      })
+  end
+
+  it "returns a specific merchant by updated at" do
+
+    get "/api/v1/merchants/find?updated_at=#{@merchant1.updated_at}"
+
+    expect(response.status).to eq(200)
+    expect(json_body.count).to eq(4)
+    expect(json_body).to eq({
+      id: @merchant1.id,
+      name: @merchant1.name,
+      created_at: "2012-03-27T14:53:59.000Z",
+      updated_at: "2012-03-27T14:53:59.000Z"
+      })
+  end
+
 end
