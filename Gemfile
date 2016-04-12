@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'factory_girl_rails'
 gem 'responders', '~> 2.0'
-gem 'active_model_serializers', '~> 0.10.x'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,7 +1,7 @@
 require 'csv'
 
 namespace :data do
-  task import: :environment do
+  task load: :environment do
 
     merchant = File.join Rails.root, "data/merchants.csv"
 
