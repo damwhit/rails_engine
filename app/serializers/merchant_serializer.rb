@@ -1,3 +1,3 @@
 class MerchantSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :created_at, :id, :name, :updated_at
 end
