@@ -1,6 +1,5 @@
 class InvoiceItem < ActiveRecord::Base
-  before_create :format_price
-
+  before_create :price_to_dollars
   belongs_to :item
   belongs_to :invoice
 
@@ -9,7 +8,7 @@ class InvoiceItem < ActiveRecord::Base
   validates :created_at, presence: true
   validates :updated_at, presence: true
 
-  def format_price
-    self.unit_price = (unit_price.to_i / 100.00.to_f).to_s
+  def price_to_dollars
+    self.unit_price = (unit_price / 100.0)
   end
 end

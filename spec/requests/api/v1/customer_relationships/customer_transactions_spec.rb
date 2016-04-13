@@ -22,7 +22,7 @@ RSpec.describe "GET api/v1/customers/:customer_id/transactions" do
     transaction1_json = json_body[0]
     expect(transaction1_json).to eq({
        :id=> transaction1.id,
-       :result=>"good",
+       :result=>"success",
        :credit_card_number => "4242424242424242",
        :invoice_id=> invoice1.id,
        :created_at=> format_date(transaction1.created_at),

@@ -1,6 +1,8 @@
 module Api
   module V1
     class ItemsController < ApiController
+      include ApiBaseController
+
       def model
         Item
       end
