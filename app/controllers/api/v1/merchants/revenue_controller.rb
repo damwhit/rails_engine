@@ -7,6 +7,10 @@ module Api
           # respond_with Merchant.find(params[:id]).invoices
           respond_with Merchant.top_revenue(params[:quantity])
         end
+
+        def total_revenue
+          respond_with Invoice.revenue_by_date(params[:date]), serializer: TotalRevenueByDateSerializer
+        end
       end
     end
   end
