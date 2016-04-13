@@ -1,6 +1,7 @@
 module Api
   module V1
     class CustomersController < ApiController
+      include ApiBaseController
 
       def index
         respond_with Customer.all

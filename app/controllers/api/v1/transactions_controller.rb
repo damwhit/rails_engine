@@ -1,6 +1,8 @@
 module Api
   module V1
     class TransactionsController < ApiController
+      include ApiBaseController
+
       def model
         Transaction
       end
