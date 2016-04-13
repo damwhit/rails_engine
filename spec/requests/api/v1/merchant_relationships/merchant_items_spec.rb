@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "GET api/v1/merchants" do
-  it "returns a list of all merchants" do
+RSpec.describe "GET api/v1/merchants/:merchant_id/items" do
+  it "returns a list of all items for a given merchant" do
     merchant1 = create(:merchant)
     item1 = create(:item)
     merchant1.items << item1
@@ -19,7 +19,7 @@ RSpec.describe "GET api/v1/merchants" do
        :name=>"baseball",
        :description=>"America's past time",
        :unit_price=>"10.0",
-       :merchant_id=>2,
+       :merchant_id=> merchant1.id,
        :created_at=> format_date(item1.created_at),
        :updated_at=> format_date(item1.updated_at)
        })
