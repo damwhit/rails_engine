@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "GET api/v1/merchants/most_revenue?quantity=x" do
+RSpec.describe "GET api/v1/merchants/most_items?quantity=x" do
   before do
     @merchant1 = create(:merchant)
     @merchant2 = create(:merchant, name: "David",
@@ -42,9 +42,9 @@ RSpec.describe "GET api/v1/merchants/most_revenue?quantity=x" do
     @merchant3.invoices << invoice2
   end
 
-  it "returns a list of a specified quantity of merchants where by most revenue" do
+  it "returns a list of a specified quantity of merchants where by most items" do
 
-    get "/api/v1/merchants/most_revenue?quantity=2"
+    get "/api/v1/merchants/most_items?quantity=2"
 
     expect(response.status).to eq(200)
     expect(json_body.count).to eq(2)
