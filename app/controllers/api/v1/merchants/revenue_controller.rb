@@ -11,6 +11,10 @@ module Api
         def total_revenue
           respond_with Invoice.revenue_by_date(params[:date]), serializer: TotalRevenueByDateSerializer
         end
+
+        def single_merchant_revenue
+          respond_with Merchant.revenue(params[:id]), serializer: MerchantTotalRevenueSerializer
+        end
       end
     end
   end
