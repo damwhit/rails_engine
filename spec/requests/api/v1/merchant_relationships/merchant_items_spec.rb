@@ -15,7 +15,7 @@ RSpec.describe "GET api/v1/merchants/:merchant_id/items" do
     expect(json_body.count).to eq(3)
 
     item1_json = json_body[0]
-    expect(item1_json).to eq({:id=>49,
+    expect(item1_json).to eq({:id=> item1.id,
        :name=>"baseball",
        :description=>"America's past time",
        :unit_price=>"10.0",

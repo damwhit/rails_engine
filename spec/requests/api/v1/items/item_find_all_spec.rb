@@ -71,7 +71,7 @@ RSpec.describe "GET api/v1/items/find_all?key=value" do
     expect(json_body.count).to eq(2)
 
     item2_json = json_body[0]
-    expect(item2_json).to eq({:id=>13,
+    expect(item2_json).to eq({:id=>@item2.id,
        :name=>"basketball",
        :description=>"sooo kewl",
        :unit_price=>"100.0",
@@ -88,7 +88,7 @@ RSpec.describe "GET api/v1/items/find_all?key=value" do
     expect(json_body.count).to eq(2)
 
     item4_json = json_body[0]
-    expect(item4_json).to eq({:id=>20,
+    expect(item4_json).to eq({:id=>@item4.id,
       :name=>"Football",
       :description=>"sooo kewl",
       :unit_price=>"100.0",
