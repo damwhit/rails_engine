@@ -7,7 +7,7 @@ Rails.application.routes.draw do
         get '/random', to: 'random#show'
         get '/:id/invoices', to: 'invoices#index'
         get '/:id/items', to: 'items#index'
-        get '/most_revenue', to: 'revenue#top_revenue'
+        get '/most_revenue', to: 'revenue#most_revenue'
       end
       resources :merchants, only: [:index, :show]
 

@@ -37,7 +37,7 @@ RSpec.describe "Get api/v1/transactions/find_all?key=value" do
       id: @transaction1.id,
       credit_card_number: @transaction1.credit_card_number,
       invoice_id: nil,
-      result: "good",
+      result: "success",
       created_at: "2012-03-27T14:53:59.000Z",
       updated_at: "2012-03-27T14:53:59.000Z"
       })
@@ -55,7 +55,7 @@ RSpec.describe "Get api/v1/transactions/find_all?key=value" do
       id: @transaction1.id,
       credit_card_number: @transaction1.credit_card_number,
       invoice_id: nil,
-      result: "good",
+      result: "success",
       created_at: "2012-03-27T14:53:59.000Z",
       updated_at: "2012-03-27T14:53:59.000Z"
       })
@@ -73,7 +73,7 @@ RSpec.describe "Get api/v1/transactions/find_all?key=value" do
       id: @transaction1.id,
       credit_card_number: @transaction1.credit_card_number,
       invoice_id: nil,
-      result: "good",
+      result: "success",
       created_at: "2012-03-27T14:53:59.000Z",
       updated_at: "2012-03-27T14:53:59.000Z"
       })
@@ -91,7 +91,7 @@ RSpec.describe "Get api/v1/transactions/find_all?key=value" do
       id: @transaction1.id,
       credit_card_number: @transaction1.credit_card_number,
       invoice_id: nil,
-      result: "good",
+      result: "success",
       created_at: "2012-03-27T14:53:59.000Z",
       updated_at: "2012-03-27T14:53:59.000Z"
       })
@@ -108,7 +108,7 @@ RSpec.describe "Get api/v1/transactions/find_all?key=value" do
       id: @transaction1.id,
       credit_card_number: @transaction1.credit_card_number,
       invoice_id: nil,
-      result: "good",
+      result: "success",
       created_at: "2012-03-27T14:53:59.000Z",
       updated_at: "2012-03-27T14:53:59.000Z"
       })
