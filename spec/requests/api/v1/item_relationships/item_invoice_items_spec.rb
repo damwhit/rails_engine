@@ -22,7 +22,7 @@ RSpec.describe "GET api/v1/items/:item_id/invoice_items" do
        :id=> invoice_item1.id,
        :unit_price => "10.0",
        :invoice_id => nil,
-       :item_id => 2,
+       :item_id => item1.id,
        :quantity => 1,
        :created_at=> format_date(invoice_item1.created_at),
        :updated_at=> format_date(invoice_item1.updated_at)
