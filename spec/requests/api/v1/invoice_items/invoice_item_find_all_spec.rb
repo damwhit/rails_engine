@@ -78,7 +78,7 @@ RSpec.describe "GET api/v1/invoice_items/find_all?key=value" do
 
     invoice_item2_json = json_body[0]
     expect(invoice_item2_json).to eq({
-      :id=>13,
+      :id=> @invoice_item2.id,
       :item_id=>nil,
       :invoice_id=>nil,
       :quantity=>10,
@@ -94,7 +94,7 @@ RSpec.describe "GET api/v1/invoice_items/find_all?key=value" do
 
     invoice_item4_json = json_body[0]
     expect(invoice_item4_json).to eq({
-      :id=>20,
+      :id=>@invoice_item4.id,
       :item_id=>nil,
       :invoice_id=>nil,
       :quantity=>11,
