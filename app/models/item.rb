@@ -14,4 +14,8 @@ class Item < ActiveRecord::Base
   def price_to_dollars
     self.unit_price = (unit_price / 100.0)
   end
+
+  def self.top_revenue(quantity)
+    select( "items.*", "SUM(invoice_items.unit_price * invoice_items.quantity) AS revenue").joins(:invoices => [:transactions, :invoice_items]).where(transactions: {result: "success"}).group(:id).order("revenue DESC").take(quantity)
+  end
 end
