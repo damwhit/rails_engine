@@ -28,7 +28,8 @@ Rails.application.routes.draw do
       namespace :items do
         get '/:id/invoice_items', to: 'invoice_items#index'
         get '/:id/merchant', to: 'merchants#show'
-        get 'most_revenue', to: 'revenue#most_revenue'
+        get '/most_revenue', to: 'revenue#most_revenue'
+        get '/most_items', to: 'items#most_sold'
       end
       get '/items/find', to: 'items#find'
       get '/items/find_all', to: 'items#find_all'

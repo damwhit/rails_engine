@@ -18,4 +18,8 @@ class Item < ActiveRecord::Base
   def self.top_revenue(quantity)
     select( "items.*", "SUM(invoice_items.unit_price * invoice_items.quantity) AS revenue").joins(:invoices => [:transactions, :invoice_items]).where(transactions: {result: "success"}).group(:id).order("revenue DESC").take(quantity)
   end
+
+  def self.best_seller(quantity)
+    select( "items.*", "COUNT(invoice_items.quantity) AS item_count").joins(invoices: [:transactions, :invoice_items]).where(transactions: {result: "success"}).group(:id).order("item_count DESC").take(quantity)
+  end
 end
