@@ -14,9 +14,9 @@ module Api
 
         def single_merchant_revenue
           if params[:date]
-            respond_with Merchant.revenue_by_date(params[:id], params[:date]), serializer: MerchantTotalRevenueSerializer
+            respond_with Merchant.find(params[:id]).revenue_by_date(params[:date]), serializer: MerchantTotalRevenueSerializer
           else
-            respond_with Merchant.revenue(params[:id]), serializer: MerchantTotalRevenueSerializer
+            respond_with Merchant.find(params[:id]).revenue, serializer: MerchantTotalRevenueSerializer
           end
         end
       end

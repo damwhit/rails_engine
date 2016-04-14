@@ -3,6 +3,7 @@ class Merchant < ActiveRecord::Base
   has_many :invoices
   has_many :transactions, through: :invoices
   has_many :invoice_items, through: :invoices
+  has_many :customers, through: :invoices
 
   validates :name, presence: true
   validates :created_at, presence: true
@@ -16,11 +17,15 @@ class Merchant < ActiveRecord::Base
     select( "merchants.*", "SUM(invoice_items.quantity) AS item_count").joins(:invoices => [:transactions, :invoice_items]).where(transactions: {result: "success"}).group(:id).order("item_count DESC").take(quantity)
   end
 
-  def self.revenue(id)
-    where(id: id).joins(:invoices => [:transactions, :invoice_items]).where(transactions: {result: "success"}).sum("invoice_items.unit_price * invoice_items.quantity")
+  def revenue
+    invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).sum("invoice_items.unit_price * invoice_items.quantity")
   end
 
-  def self.revenue_by_date(id, date)
-    where(id: id).joins(:invoices => [:transactions, :invoice_items]).where(invoices: {created_at: date}).where(transactions: {result: "success"}).sum("invoice_items.unit_price * invoice_items.quantity")
+  def revenue_by_date(date)
+    invoices.joins(:transactions, :invoice_items).where(invoices: {created_at: date}).where(transactions: {result: "success"}).sum("invoice_items.unit_price * invoice_items.quantity")
+  end
+
+  def favorite_customer
+    customers.select( "customers.*", "COUNT(transactions) AS transaction_count").joins(:transactions).where(transactions: {result: "success"}).group(:id).order("transaction_count DESC").first
   end
 end
