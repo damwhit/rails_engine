@@ -10,6 +10,9 @@ Rails.application.routes.draw do
         get '/most_revenue', to: 'revenue#most_revenue'
         get '/most_items', to: 'items#most_items'
         get '/revenue', to: 'revenue#total_revenue'
+        get '/:id/revenue', to: 'revenue#single_merchant_revenue'
+        get '/:id/favorite_customer', to: 'customers#show'
+        get '/:id/customers_with_pending_invoices', to: 'customers#index'
       end
       resources :merchants, only: [:index, :show]
 
