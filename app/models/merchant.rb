@@ -26,6 +26,10 @@ class Merchant < ActiveRecord::Base
   end
 
   def favorite_customer
-    customers.select( "customers.*", "COUNT(transactions) AS transaction_count").joins(:transactions).where(transactions: {result: "success"}).group(:id).order("transaction_count DESC").first
+    customers.select("customers.*", "COUNT(transactions) AS transaction_count").joins(:transactions).where(transactions: {result: "success"}).group(:id).order("transaction_count DESC").first
+  end
+
+  def customers_with_pending_invoices
+    Customer.find(invoices.joins(:transactions).where(transactions: {result: "failed"}).pluck(:customer_id))
   end
 end
