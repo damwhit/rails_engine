@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         get '/:id/merchant', to: 'merchants#show'
         get '/most_revenue', to: 'revenue#most_revenue'
         get '/most_items', to: 'items#most_sold'
+        get '/:id/best_day', to: 'items#best_day'
       end
       get '/items/find', to: 'items#find'
       get '/items/find_all', to: 'items#find_all'
